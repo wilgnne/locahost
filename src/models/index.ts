@@ -1,0 +1,5 @@
+export { Address } from './Address'
+export { Booking } from './Booking'
+export { Client } from './Client'
+export { Genre } from './Genre'
+export { Movie } from './Movie'
