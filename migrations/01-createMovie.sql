@@ -1,6 +1,6 @@
 CREATE TABLE genre (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(255)
+    name VARCHAR(255)
 );
 
 CREATE TABLE movie (
