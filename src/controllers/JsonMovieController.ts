@@ -19,13 +19,22 @@ export class JsonMovieController implements Controller {
     const { id } = req.params as unknown as { id: number }
     const movie = await this.dao.getById(id)
 
+    if (movie === undefined) {
+      res.sendStatus(404)
+      return
+    }
+
     res.json(movie)
   }
 
   async create (req: Request, res: Response): Promise<void> {
-    const data = req.body as Movie
-    await this.dao.create(data)
+    try {
+      const data = req.body as Movie
+      await this.dao.create(data)
 
-    res.sendStatus(201)
+      res.sendStatus(201)
+    } catch (err) {
+      res.status(400).send('Failed to register movie, check your details and try again')
+    }
   }
 }
