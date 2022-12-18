@@ -14,6 +14,8 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/checkout.css">
 </head>
 
 <body>
@@ -27,26 +29,28 @@
                 <input type="text" id="searchButton" placeholder="Search">
             </div>
             <ul class="nav">
-                <li class="active">
+                <li class="active" id="navHome">
                     <img src="img/home.svg" alt="home">
                     <p>Home</p>
                 </li>
-                <li>
+                <li id="navCheckout">
                     <img src="img/dollar.svg" alt="checkout">
                     <p>Checkout</p>
                 </li>
             </ul>
         </div>
-        <div class="myList">
-            <hr>
-            <h3>My List</h3>
-            <div class="movies">
+        <div id="myList" class="active">
+            <div class="informations">
+                <h3>My List</h3>
+                <h3 id="listPrice"></h3>
+            </div>
+            <div id="moviesList">
 
             </div>
         </div>
     </header>
 
-    <div class="contents">
+    <div class="home active" id="home">
         <main>
             <div class="welcome">
                 <h2>Welcome to <span>LocaHost</span></h2>
@@ -63,18 +67,18 @@
             <h2>Movies</h2>
             <div id="movies">
                 <% movies.forEach(movie=> { %>
-                    <div class="movie">
+                    <div id="movie-<%= movie.id %>" class="movie">
                         <img class="plus" src="img/plus.svg.svg" alt="">
                         <img class="poster" src="<%= movie.posterUrl %>" alt="">
                         <div class="description">
                             <p class="title">
-                                <%= movie.title %>
+                                <%= movie.title.slice(0,35) %>
                             </p>
                             <p class="date">
-                                <%= new Date(movie.releaseDate).toLocaleDateString() %>
+                                (<%= new Date(movie.releaseDate).toLocaleDateString('pt-BR') %>)
                             </p>
                             <p class="price">
-                                <%= movie.leaseValue %>
+                                $<%= movie.leaseValue.toFixed(2) %> / <%= movie.leaseTime %> day(s)
                             </p>
                         </div>
                     </div>
@@ -85,13 +89,37 @@
         </main>
 
         <footer>
-
+            LocaHost®
         </footer>
     </div>
 
+    <div class="checkout" id="checkout">
+        <div class="mainCheckout">
+            <h2>My List</h2>
+            <div id="moviesChekout">
+
+            </div>
+            <h2>Checkout</h2>
+            <div class="informations">
+                <p class="leaseFirst">Lease First: <span></span></p>
+                <p class="leaseLast">Lease Last: <span></span></p>
+                <p class="price">Total: <span></span></p>
+            </div>
+            <form method="post" id="chekoutForm">
+                <input type="text" id="cpf" name="cpf" maxlength="14" placeholder="Client CPF">
+                <input type="submit" value="Finish">
+            </form>
+        </div>
+        <footer>
+            LocaHost®
+        </footer>
+    </div>
+
+
 </body>
 
-
-<script src="scripts/movies.js"></script>
+<script src="scripts/searchMovies.js"></script>
+<script src="scripts/myMoviesList.js"></script>
+<script src="scripts/checkout.js"></script>
 
 </html>

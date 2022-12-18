@@ -1,0 +1,122 @@
+#checkout {
+    min-height: 100vh;
+    background-color: var(--gray);
+    margin-left: 23%;
+    box-sizing: border-box;
+    display: none;
+}
+
+#checkout.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.mainCheckout {
+    padding: 4em 5em;
+}
+
+#checkout #moviesChekout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minMax(10em, 1fr));
+    gap: 1em;
+    margin-bottom: 5em;
+}
+
+#checkout .movie {
+    /* cursor: pointer; */
+    position: relative;
+    background-color: var(--gray);
+    border-radius: 0 0.5em 0.5em 0.5em;
+    overflow: hidden;
+}
+
+#checkout .movie .plus {
+    cursor: pointer;
+    position: absolute;
+}
+
+#checkout .movie .plus:hover {
+    filter: brightness(2);
+}
+
+#checkout .movie img.poster {
+
+    width: 100%;
+}
+
+#checkout .movie .description {
+    padding: 0.1em 0.5em 0.5em;
+    height: 6em;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+}
+
+#checkout .movie .description p {
+    margin: 0;
+}
+
+#checkout .movie .description .title {
+    font-size: 1.2em;
+    font-variant-caps: petite-caps;
+}
+
+#checkout .movie .description .date {
+    color: var(--gray-light);
+}
+
+#checkout .movie .description .price {
+    text-align: center;
+    color: yellowgreen;
+}
+
+.mainCheckout .informations {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+.mainCheckout .informations .leaseFirst,
+.mainCheckout .informations .leaseLast {
+    color: var(--gray-light);
+}
+
+.mainCheckout .informations .price {
+    font-size: 110%;
+    text-align: end;
+}
+
+.mainCheckout form {
+    display: grid;
+    grid-template-columns: 9fr 1fr;
+    margin-top: 2em;
+    box-sizing: border-box;
+}
+
+
+.mainCheckout form input {
+    background-color: transparent;
+    border: 0.1em solid var(--gray-medium);
+    border-right: none;
+    border-radius: 0.5em 0 0 0.5em;
+    padding: .5em;
+    color: white;
+    font-size: 110%;
+    box-sizing: border-box;
+}
+
+.mainCheckout form input::placeholder {
+    color: var(--gray-medium);
+}
+
+.mainCheckout form input:focus {
+    outline: none;
+}
+
+.mainCheckout form input[type='submit'] {
+    background-color: var(--orange);
+    border: 0.1em solid var(--orange);
+    border-radius: 0 0.5em 0.5em 0;
+    font-size: 110%;
+}
