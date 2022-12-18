@@ -4,6 +4,7 @@
   "description": "Locadora de Filmes LocaHost",
   "main": "index.js",
   "scripts": {
+    "populate": "ts-node scripts/populate.ts",
     "lint": "eslint . --fix"
   },
   "repository": {
