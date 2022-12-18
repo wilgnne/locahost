@@ -69,6 +69,7 @@ header .sidebar .nav {
 }
 
 header .sidebar .nav li {
+    cursor: pointer;
     position: relative;
     background-color: transparent;
     border-radius: 0.5em;
@@ -93,149 +94,71 @@ header .sidebar .nav li.active {
     background-color: var(--gray);
 }
 
-header .myList hr {
-    color: var(--gray);
-    border-style: solid;
+header #myList {
+    display: none;
 }
 
-header .myList h3 {
+header #myList.active {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+header #myList .informations {
+    display: flex;
+    justify-content: space-between;
+}
+
+header #myList .informations h3 {
     font-weight: 200;
     letter-spacing: 0.1em;
 }
 
-
-
-
-.contents {
-    min-height: 100vh;
-    background-color: var(--gray);
-    margin-left: 23%;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+header #myList #moviesList {
+    height: 100%;
+    overflow: auto;
 }
 
-main {
-    padding: 4em 5em;
-}
-
-main .welcome {
-    background-color: var(--gray);
-    padding: 1em 1.5em;
-    border: 0.1em solid var(--red);
-    border-radius: .5em;
-}
-
-main .welcome h2 {
-    font-size: 2em;
-    margin-top: 0;
-    font-weight: 400;
-}
-
-main .welcome h2 span {
-    color: var(--orange);
-}
-
-main .welcome .description {
-    margin: 0;
-    line-height: 2;
-    position: relative;
-}
-
-main .welcome .description img {
-    position: absolute;
-    display: inline-block;
-}
-
-main .search {
-    display: grid;
-    grid-template-columns: 9fr 1fr;
-    margin-top: 2em;
-    position: relative;
-}
-
-main .search img {
-    position: absolute;
-    left: 0.8em;
-    top: 0.8em;
-}
-
-main .search input {
-    background-color: transparent;
-    border: 0.1em solid var(--gray-medium);
-    border-right: none;
-    border-radius: 0.5em 0 0 0.5em;
-    padding: .6em;
-    padding-left: 3em;
-    color: var(--gray-light);
-    font-size: 110%;
-}
-
-main .search input::placeholder {
-    color: var(--gray-medium);
-}
-
-main .search input:focus {
-    outline: none;
-}
-
-main .search button {
-    background-color: var(--orange);
-    border: 0.1em solid var(--orange);
-    border-radius: 0 0.5em 0.5em 0;
-    font-size: 110%;
-}
-
-
-
-/* movie */
-main #movies {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minMax(10em, 1fr));
-    gap: 1em;
-}
-
-main .movie {
+header #myList #moviesList .movie {
     cursor: pointer;
-    position: relative;
-    background-color: var(--gray);
-    border-radius: 0 0.5em 0.5em 0.5em;
-    overflow: hidden;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 4fr;
+    margin-bottom: 0.5em;
 }
 
-main .movie .plus {
-    cursor: pointer;
-    position: absolute;
+header #myList #moviesList .movie:hover {
+    background-color: var(--red);
 }
 
-main .movie .plus:hover {
-    filter: brightness(2);
-}
-
-main .movie img.poster {
-
+header #myList #moviesList .movie .poster {
     width: 100%;
 }
 
-main .movie .description {
-    padding: 0.1em 0.5em 0.5em;
+header #myList #moviesList .movie .description {
+    padding-left: 1em;
+    box-sizing: border-box;
 }
 
-main .movie .description p {
+header #myList #moviesList .movie .description p {
     margin: 0;
 }
 
-main .movie .description .title {
+header #myList #moviesList .movie .description .title {
     font-size: 1.2em;
     font-variant-caps: petite-caps;
 }
 
-main .movie .description .date {
-    color: var(--gray-light);
-}
-
-main .movie .description .price {
+header #myList #moviesList .movie .description .price {
     text-align: center;
     color: yellowgreen;
+}
+
+footer {
+    width: 100%;
+    text-align: center;
+    background-color: var(--gray);
+    color: white;
+    padding: 0.5em;
+    box-sizing: border-box;
 }
