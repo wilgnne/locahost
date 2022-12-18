@@ -1,7 +1,6 @@
 export interface Client {
   id: number
-  full_name: string
+  fullName: string
   cpf: string
-  id_address: number
   phone: string
 }
