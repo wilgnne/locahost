@@ -2,9 +2,10 @@ import { Request, Response } from 'express'
 
 export interface QueryFilter {
   search?: string
+  [key: string]: any
 }
 
-export type GetAllReq = Request<{}, {}, {}, QueryFilter>
+export type GetAllReq = Request<any, any, any, QueryFilter>
 
 export interface Controller {
   getById?: (req: Request, res: Response) => Promise<void>
