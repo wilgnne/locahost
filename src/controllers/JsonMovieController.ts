@@ -3,13 +3,14 @@ import { Request, Response } from 'express'
 import { Dao } from '../dao/dao'
 import { Movie } from '../models'
 
-import { Controller } from './controller'
+import { Controller, GetAllReq } from './controller'
 
 export class JsonMovieController implements Controller {
   constructor (private readonly dao: Dao<Movie>) {}
 
-  async getAll (req: Request, res: Response): Promise<void> {
-    const movies = await this.dao.getAll()
+  async getAll (req: GetAllReq, res: Response): Promise<void> {
+    const { query } = req
+    const movies = await this.dao.getAll(query)
 
     res.json(movies)
   }
