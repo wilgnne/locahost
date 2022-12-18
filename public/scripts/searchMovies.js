@@ -2,26 +2,25 @@
 const divMovies = document.getElementById('movies')
 
 const butSearch = document.getElementById('butSearch')
+const inpSearch = document.getElementById('inpSearch')
 
 butSearch.addEventListener('click', () => {
-  getMovies()
+  getMovies(inpSearch.value)
 })
 
-async function getMovies () {
-  const configReq = {
-    method: 'GET',
-    cors: 'no-cors'
-  }
-  const response = await fetch('/api/movie', configReq)
+async function getMovies (search) {
+  divMovies.innerHTML = ''
+  const response = await fetch(`/api/movie?${new URLSearchParams({ search })}`)
   const movies = await response.json()
-  console.log(movies)
   movies.forEach(movie => {
     divMovies.appendChild(createMovie(movie))
   })
+  emitMoviesLoaded()
 }
 
 function createMovie (movie) {
   const movieCard = document.createElement('div')
+  movieCard.id = `movie-${movie.id}`
   movieCard.classList.add('movie')
 
   const plus = document.createElement('img')
@@ -50,10 +49,24 @@ function createMovie (movie) {
 
   const price = document.createElement('p')
   price.classList.add('price')
-  price.innerText = `$${movie.leaseValue}`
+  price.innerText = `$${movie.leaseValue.toFixed(2)} / ${movie.leaseTime} day(s)`
   description.appendChild(price)
 
   movieCard.appendChild(description)
 
   return movieCard
 }
+
+function emitMoviesLoaded () {
+  // eslint-disable-next-line no-undef
+  const event = new CustomEvent('moviesLoaded', {
+    bubbles: true,
+    cancelable: true,
+    composed: false
+  })
+  document.dispatchEvent(event)
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  emitMoviesLoaded()
+})
