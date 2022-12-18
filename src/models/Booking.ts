@@ -1,7 +1,7 @@
 export interface Booking {
   id: number
-  id_client: number
-  id_movie: number
-  starDate: string
-  returnDate: string
+  cpf: string
+  idMovie: number
+  startDate: string
+  returnDate?: string
 }

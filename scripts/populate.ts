@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs'
 import path from 'path'
 
-import { DataBase } from '../src/infra/MySQLDataBase'
+import { MySQLDataBase } from '../src/infra/MySQLDataBase'
 
 interface TmdbMovie {
   adult: boolean
@@ -68,7 +68,7 @@ async function main (): Promise<void> {
   coverUrl
 ) VALUES ${DIs.join(',\n')};`
 
-    await DataBase.getConnection().query(sql)
+    await MySQLDataBase.getConnection().query(sql)
   } catch (error) {
     console.log(error)
   }
