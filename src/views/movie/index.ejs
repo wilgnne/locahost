@@ -3,13 +3,95 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;800&display=swap" rel="stylesheet">
+
+
     <title>Document</title>
+
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
-    <%= movies %>
+
+
+    <header>
+        <div class="sidebar">
+            <h2>LocaHost</h2>
+            <div class="search">
+                <img src="img/search.svg" alt="search">
+                <input type="text" id="searchButton" placeholder="Search">
+            </div>
+            <ul class="nav">
+                <li class="active">
+                    <img src="img/home.svg" alt="home">
+                    <p>Home</p>
+                </li>
+                <li>
+                    <img src="img/dollar.svg" alt="checkout">
+                    <p>Checkout</p>
+                </li>
+            </ul>
+        </div>
+        <div class="myList">
+            <hr>
+            <h3>My List</h3>
+            <div class="movies">
+
+            </div>
+        </div>
+    </header>
+
+    <div class="contents">
+        <main>
+            <div class="welcome">
+                <h2>Welcome to <span>LocaHost</span></h2>
+                <p class="description">Choose your movie and enjoy with your friends.<br> Click on the button <img
+                        src="./img/plus.svg.svg" alt="plus">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp to add a movie, or click on
+                    the movie for more details.</p>
+            </div>
+            <div class="search">
+                <img src="img/search.svg" alt="search">
+                <input type="text" id="inpSearch" placeholder="Search  for movies by tittle">
+                <button id="butSearch">Buscar</button>
+            </div>
+
+            <h2>Movies</h2>
+            <div id="movies">
+                <% movies.forEach(movie=> { %>
+                    <div class="movie">
+                        <img class="plus" src="img/plus.svg.svg" alt="">
+                        <img class="poster" src="<%= movie.posterUrl %>" alt="">
+                        <div class="description">
+                            <p class="title">
+                                <%= movie.title %>
+                            </p>
+                            <p class="date">
+                                <%= new Date(movie.releaseDate).toLocaleDateString() %>
+                            </p>
+                            <p class="price">
+                                <%= movie.leaseValue %>
+                            </p>
+                        </div>
+                    </div>
+                    <% }); %>
+            </div>
+
+
+        </main>
+
+        <footer>
+
+        </footer>
+    </div>
+
 </body>
+
+
+<script src="scripts/movies.js"></script>
 
 </html>

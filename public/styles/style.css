@@ -1,0 +1,241 @@
+:root {
+    margin: 0;
+    padding: 0;
+    --gray: rgba(255, 255, 255, 0.1);
+    --gray-medium: rgba(255, 255, 255, 0.2);
+    --gray-light: rgba(255, 255, 255, 0.5);
+    --orange: rgba(243, 63, 63, 1);
+    --red: rgba(164, 27, 27, 1);
+    font-family: 'Inter', sans-serif;
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+}
+
+
+/* header */
+header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 23%;
+    height: 100vh;
+    padding: 0 2%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 40vh 60vh;
+    align-items: flex-start;
+}
+
+header .sidebar h2 {
+    color: var(--red);
+    text-align: center;
+    font-size: 2em;
+}
+
+header .sidebar .search {
+    position: relative;
+}
+
+header .sidebar .search img {
+    position: absolute;
+    left: 0.6em;
+    top: 0.3em;
+}
+
+header .sidebar .search input {
+    background-color: transparent;
+    border: 0.1em solid var(--gray-medium);
+    border-radius: 0.5em;
+    padding: .5em;
+    padding-left: 3em;
+    color: var(--gray-light);
+    font-size: 85%;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+header .sidebar .nav {
+    padding: 0;
+    margin: 0;
+    margin-top: 2.5em;
+    list-style: none;
+}
+
+header .sidebar .nav li {
+    position: relative;
+    background-color: transparent;
+    border-radius: 0.5em;
+    margin-bottom: 1.5em;
+    padding: 0.6em;
+    padding-left: 3em;
+}
+
+header .sidebar .nav li img {
+    position: absolute;
+    left: 0.6em;
+    top: 0.6em;
+}
+
+header .sidebar .nav li p {
+    padding: 0;
+    margin: 0;
+    font-weight: 200;
+}
+
+header .sidebar .nav li.active {
+    background-color: var(--gray);
+}
+
+header .myList hr {
+    color: var(--gray);
+    border-style: solid;
+}
+
+header .myList h3 {
+    font-weight: 200;
+    letter-spacing: 0.1em;
+}
+
+
+
+
+.contents {
+    min-height: 100vh;
+    background-color: var(--gray);
+    margin-left: 23%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+main {
+    padding: 4em 5em;
+}
+
+main .welcome {
+    background-color: var(--gray);
+    padding: 1em 1.5em;
+    border: 0.1em solid var(--red);
+    border-radius: .5em;
+}
+
+main .welcome h2 {
+    font-size: 2em;
+    margin-top: 0;
+    font-weight: 400;
+}
+
+main .welcome h2 span {
+    color: var(--orange);
+}
+
+main .welcome .description {
+    margin: 0;
+    line-height: 2;
+    position: relative;
+}
+
+main .welcome .description img {
+    position: absolute;
+    display: inline-block;
+}
+
+main .search {
+    display: grid;
+    grid-template-columns: 9fr 1fr;
+    margin-top: 2em;
+    position: relative;
+}
+
+main .search img {
+    position: absolute;
+    left: 0.8em;
+    top: 0.8em;
+}
+
+main .search input {
+    background-color: transparent;
+    border: 0.1em solid var(--gray-medium);
+    border-right: none;
+    border-radius: 0.5em 0 0 0.5em;
+    padding: .6em;
+    padding-left: 3em;
+    color: var(--gray-light);
+    font-size: 110%;
+}
+
+main .search input::placeholder {
+    color: var(--gray-medium);
+}
+
+main .search input:focus {
+    outline: none;
+}
+
+main .search button {
+    background-color: var(--orange);
+    border: 0.1em solid var(--orange);
+    border-radius: 0 0.5em 0.5em 0;
+    font-size: 110%;
+}
+
+
+
+/* movie */
+main #movies {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minMax(10em, 1fr));
+    gap: 1em;
+}
+
+main .movie {
+    cursor: pointer;
+    position: relative;
+    background-color: var(--gray);
+    border-radius: 0 0.5em 0.5em 0.5em;
+    overflow: hidden;
+}
+
+main .movie .plus {
+    cursor: pointer;
+    position: absolute;
+}
+
+main .movie .plus:hover {
+    filter: brightness(2);
+}
+
+main .movie img.poster {
+
+    width: 100%;
+}
+
+main .movie .description {
+    padding: 0.1em 0.5em 0.5em;
+}
+
+main .movie .description p {
+    margin: 0;
+}
+
+main .movie .description .title {
+    font-size: 1.2em;
+    font-variant-caps: petite-caps;
+}
+
+main .movie .description .date {
+    color: var(--gray-light);
+}
+
+main .movie .description .price {
+    text-align: center;
+    color: yellowgreen;
+}
