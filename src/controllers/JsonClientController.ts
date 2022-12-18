@@ -3,12 +3,12 @@ import { Request, Response } from 'express'
 import { Dao } from '../dao/dao'
 import { Client } from '../models'
 
-import { Controller } from './controller'
+import { Controller, GetAllReq } from './controller'
 
 export class JsonClientController implements Controller {
   constructor (private readonly dao: Dao<Client>) {}
 
-  async getAll (req: Request, res: Response): Promise<void> {
+  async getAll (req: GetAllReq, res: Response): Promise<void> {
     const clients = await this.dao.getAll()
 
     res.json(clients)

@@ -1,13 +1,13 @@
 import { SqlDatabase } from '../infra/sqlDatabase'
 import { Movie } from '../models'
 
-import { Dao } from './dao'
+import { Dao, Filter } from './dao'
 
 export class SqlMovieDao implements Dao<Movie> {
   constructor (private readonly database: SqlDatabase) {}
 
-  async getAll (): Promise<Movie[]> {
-    const sql = 'SELECT * FROM movie;'
+  async getAll ({ search }: Filter = {}): Promise<Movie[]> {
+    const sql = `SELECT * FROM movie WHERE title LIKE "%${search === undefined ? '' : search}%";`
 
     const response = await this.database.query<Movie[]>(sql)
     return response

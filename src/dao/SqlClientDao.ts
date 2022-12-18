@@ -1,12 +1,12 @@
 import { SqlDatabase } from '../infra/sqlDatabase'
 import { Client } from '../models'
 
-import { Dao } from './dao'
+import { Dao, Filter } from './dao'
 
 export class SqlClientDao implements Dao<Client> {
   constructor (private readonly database: SqlDatabase) {}
 
-  async getAll (): Promise<Client[]> {
+  async getAll (filter: Filter = {}): Promise<Client[]> {
     const sql = 'SELECT * FROM client;'
 
     const response = await this.database.query<Client[]>(sql)
