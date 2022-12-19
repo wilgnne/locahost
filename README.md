@@ -19,11 +19,11 @@ Integrates do grupo: Wilgnne, Cristiano, Eduardo Maciel, Fellipe, Edvaldo, Heloi
 
 -Frontend
 
-  Estrutura HTML: Eduardo, Fellipe
+    Estrutura HTML: Eduardo, Fellipe
   
-  Estilização: Heloisa, Eduardo
+    Estilização: Heloisa, Eduardo
   
-  JavaScript: Eduardo
+    JavaScript: Eduardo
   
 
 3 Controllers: Filme, Reserva.
