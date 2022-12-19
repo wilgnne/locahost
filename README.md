@@ -1,10 +1,23 @@
 # LocaHost - Locadora de Filmes
+Integrates do grupo: Wilgnne, Cristiano, Eduardo Maciel, Fellipe, Edvaldo, Heloisa.
 
 ## Divisão de tarefas
 
-3 Controllers: Cliente, Filme, Reserva.
+-As atividades foram desenvolvidas em subgrupos
+-Analise de requisitos: Heloisa, Wilgnne
+-Modelagem do Banco: Fellipe, Wilgnne, Eduardo, Cristiano
+-Constrollers: Wilgnne, Fellipe
+-Models: Willgne
+-Dao(acesso ao banco): wilgnne
+-Design no Figma: Edvaldo
+-Frontend
+  Estrutura HTML: Eduardo, Fellipe
+  Estilização: Heloisa, Eduardo
+  JavaScript: Eduardo
 
-Cliente, Filme: divide as tarefas em dois times
+3 Controllers: Filme, Reserva.
+
+Entidade Filme: divide as tarefas em dois times
 
 Reserva: Fazer juntos
 
