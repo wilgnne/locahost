@@ -4,16 +4,27 @@ Integrates do grupo: Wilgnne, Cristiano, Eduardo Maciel, Fellipe, Edvaldo, Heloi
 ## Divisão de tarefas
 
 -As atividades foram desenvolvidas em subgrupos
+
 -Analise de requisitos: Heloisa, Wilgnne
+
 -Modelagem do Banco: Fellipe, Wilgnne, Eduardo, Cristiano
+
 -Constrollers: Wilgnne, Fellipe
+
 -Models: Willgne
+
 -Dao(acesso ao banco): wilgnne
+
 -Design no Figma: Edvaldo
+
 -Frontend
+
   Estrutura HTML: Eduardo, Fellipe
+  
   Estilização: Heloisa, Eduardo
+  
   JavaScript: Eduardo
+  
 
 3 Controllers: Filme, Reserva.
 
