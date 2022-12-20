@@ -5,13 +5,13 @@ Integrates do grupo: Wilgnne, Cristiano, Eduardo Maciel, Fellipe, Edvaldo, Heloi
 
 -As atividades foram desenvolvidas em subgrupos
 
--Analise de requisitos: Heloisa, Wilgnne
+-Analise de requisitos: Edvaldo, Heloisa, Wilgnne
 
 -Modelagem do Banco: Fellipe, Wilgnne, Eduardo, Cristiano
 
 -Constrollers: Wilgnne, Fellipe
 
--Models: Willgne
+-Models: Willgne, Heloisa
 
 -Dao(acesso ao banco): wilgnne
 
