@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/home.css">
     <link rel="stylesheet" href="styles/checkout.css">
+    <link rel="stylesheet" href="styles/bookings.css">
 </head>
 
 <body>
@@ -37,6 +38,10 @@
                     <img src="img/dollar.svg" alt="checkout">
                     <p>Checkout</p>
                 </li>
+                <li id="navBookings">
+                    <img src="img/dollar.svg" alt="checkout">
+                    <p>Bookings</p>
+                </li>
             </ul>
         </div>
         <div id="myList" class="active">
@@ -50,76 +55,93 @@
         </div>
     </header>
 
-    <div class="home active" id="home">
-        <main>
-            <div class="welcome">
-                <h2>Welcome to <span>LocaHost</span></h2>
-                <p class="description">Choose your movie and enjoy with your friends.<br> Click on the button <img
-                        src="./img/plus.svg.svg" alt="plus">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp to add a movie, or click on
-                    the movie for more details.</p>
-            </div>
-            <div class="search">
-                <img src="img/search.svg" alt="search">
-                <input type="text" id="inpSearch" placeholder="Search  for movies by tittle">
-                <button id="butSearch">Buscar</button>
-            </div>
+    <div id="contents">
+        <div class="home active" id="home">
+            <main>
+                <div class="welcome">
+                    <h2>Welcome to <span>LocaHost</span></h2>
+                    <p class="description">Choose your movie and enjoy with your friends.<br> Click on the button <img
+                            src="./img/plus.svg.svg" alt="plus">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp to add a movie, or click
+                        on
+                        the movie for more details.</p>
+                </div>
+                <div class="search">
+                    <img src="img/search.svg" alt="search">
+                    <input type="text" id="inpSearch" placeholder="Search  for movies by tittle">
+                    <button id="butSearch">Search</button>
+                </div>
 
-            <h2>Movies</h2>
-            <div id="movies">
-                <% movies.forEach(movie=> { %>
-                    <div id="movie-<%= movie.id %>" class="movie">
-                        <img class="plus" src="img/plus.svg.svg" alt="">
-                        <img class="poster" src="<%= movie.posterUrl %>" alt="">
-                        <div class="description">
-                            <p class="title">
-                                <%= movie.title.slice(0,35) %>
-                            </p>
-                            <p class="date">
-                                (<%= new Date(movie.releaseDate).toLocaleDateString('pt-BR') %>)
-                            </p>
-                            <p class="price">
-                                $<%= movie.leaseValue.toFixed(2) %> / <%= movie.leaseTime %> day(s)
-                            </p>
+                <h2>Movies</h2>
+                <div id="movies">
+                    <% movies.forEach(movie=> { %>
+                        <div id="movie-<%= movie.id %>" class="movie">
+                            <img class="plus" src="img/plus.svg.svg" alt="">
+                            <img class="poster" src="<%= movie.posterUrl %>" alt="">
+                            <div class="description">
+                                <p class="title">
+                                    <%= movie.title.slice(0,35) %>
+                                </p>
+                                <p class="date">
+                                    (<%= new Date(movie.releaseDate).toLocaleDateString('pt-BR') %>)
+                                </p>
+                                <p class="price">
+                                    $<%= movie.leaseValue.toFixed(2) %> / <%= movie.leaseTime %> day(s)
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <% }); %>
-            </div>
+                        <% }); %>
+                </div>
 
 
-        </main>
+            </main>
 
-        <footer>
-            LocaHost®
-        </footer>
-    </div>
-
-    <div class="checkout" id="checkout">
-        <div class="mainCheckout">
-            <h2>My List</h2>
-            <div id="moviesChekout">
-
-            </div>
-            <h2>Checkout</h2>
-            <div class="informations">
-                <p class="leaseFirst">Lease First: <span></span></p>
-                <p class="leaseLast">Lease Last: <span></span></p>
-                <p class="price">Total: <span></span></p>
-            </div>
-            <form method="post" id="chekoutForm">
-                <input type="text" id="cpf" name="cpf" maxlength="14" placeholder="Client CPF">
-                <input type="submit" value="Finish">
-            </form>
+            <footer>
+                LocaHost®
+            </footer>
         </div>
-        <footer>
-            LocaHost®
-        </footer>
-    </div>
 
+        <div class="checkout" id="checkout">
+            <div class="mainCheckout">
+                <h2>My List</h2>
+                <div id="moviesCheckout">
+
+                </div>
+                <h2>Checkout</h2>
+                <div class="informations">
+                    <p class="leaseFirst">Lease First: <span></span></p>
+                    <p class="leaseLast">Lease Last: <span></span></p>
+                    <p class="price">Total: <span></span></p>
+                </div>
+                <form method="post" id="checkoutForm">
+                    <input type="text" id="cpf" name="cpf" maxlength="14" placeholder="Client CPF">
+                    <input type="submit" value="Finish">
+                </form>
+            </div>
+
+        </div>
+
+        <div class="bookings" id="bookings">
+            <div class="mainBookings">
+                <h2>Bookings</h2>
+                <form id="bookingsForm">
+                    <input type="text" id="booking-cpf" name="cpf" maxlength="14" placeholder="Client CPF">
+                    <input type="submit" value="Search">
+                </form>
+                <div id="allBookings">
+
+                </div>
+            </div>
+            <footer>
+                LocaHost®
+            </footer>
+        </div>
+    </div>
 
 </body>
 
 <script src="scripts/searchMovies.js"></script>
 <script src="scripts/myMoviesList.js"></script>
 <script src="scripts/checkout.js"></script>
+<script src="scripts/booking.js"></script>
 
 </html>

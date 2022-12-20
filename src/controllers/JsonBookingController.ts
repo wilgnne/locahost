@@ -28,11 +28,14 @@ export class JsonBookingController implements Controller {
 
   async create (req: Request, res: Response): Promise<void> {
     try {
-      const data = req.body as Booking
-      await this.dao.create(data)
+      const data = req.body as Booking[]
+      console.log({ data })
+
+      await Promise.all(data.map(async (booking) => await this.dao.create(booking)))
 
       res.sendStatus(201)
     } catch (err) {
+      console.log(err)
       res.status(400).send('Failed to register booking, check your details and try again')
     }
   }

@@ -2,7 +2,7 @@ CREATE TABLE booking(
     id INT PRIMARY KEY AUTO_INCREMENT,
     cpf CHAR(11) NOT NULL,
     idMovie INT NOT NULL,
-    startDate DATE NOT NULL DEFAULT CURDATE(),
+    startDate DATE NOT NULL DEFAULT(CURRENT_DATE),
     returnDate DATE DEFAULT NULL,
     FOREIGN KEY (idMovie) REFERENCES movie(id)
 );

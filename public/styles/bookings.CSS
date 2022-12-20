@@ -1,0 +1,103 @@
+#bookings {
+    min-height: 100vh;
+    background-color: var(--gray);
+    margin-left: 23%;
+    box-sizing: border-box;
+    display: none;
+}
+
+#bookings.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.mainBookings {
+    padding: 4em 5em;
+}
+
+.mainBookings form {
+    display: grid;
+    grid-template-columns: 9fr 1fr;
+    margin-top: 2em;
+    box-sizing: border-box;
+}
+
+
+.mainBookings form input {
+    background-color: transparent;
+    border: 0.1em solid var(--gray-medium);
+    border-right: none;
+    border-radius: 0.5em 0 0 0.5em;
+    padding: .5em;
+    color: white;
+    font-size: 110%;
+    box-sizing: border-box;
+}
+
+.mainBookings form input::placeholder {
+    color: var(--gray-medium);
+}
+
+.mainBookings form input:focus {
+    outline: none;
+}
+
+.mainBookings form input[type='submit'] {
+    background-color: var(--orange);
+    border: 0.1em solid var(--orange);
+    border-radius: 0 0.5em 0.5em 0;
+    font-size: 110%;
+}
+
+#bookings #allBookings {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minMax(10em, 1fr));
+    gap: 1em;
+    margin-top: 2em;
+    margin-bottom: 5em;
+}
+
+/* movie */
+#bookings #allBookings .movie {
+    /* cursor: pointer; */
+    position: relative;
+    background-color: var(--gray);
+    border-radius: 0 0.5em 0.5em 0.5em;
+    overflow: hidden;
+}
+
+#bookings #allBookings .movie .plus {
+    cursor: pointer;
+    position: absolute;
+}
+
+#bookings #allBookings .movie .plus:hover {
+    filter: brightness(2);
+}
+
+#bookings #allBookings .movie img.poster {
+
+    width: 100%;
+}
+
+#bookings #allBookings .movie .description {
+    padding: 0.1em 0.5em 0.5em;
+    height: 6em;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+}
+
+#bookings #allBookings .movie .description p {
+    margin: 0;
+}
+
+#bookings #allBookings .movie .description .title {
+    font-size: 1.2em;
+    font-variant-caps: petite-caps;
+}
+
+#bookings #allBookings .movie .description .date {
+    color: var(--gray-light);
+}
