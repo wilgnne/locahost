@@ -16,7 +16,7 @@
     padding: 4em 5em;
 }
 
-#checkout #moviesChekout {
+#checkout #moviesCheckout {
     display: grid;
     grid-template-columns: repeat(auto-fill, minMax(10em, 1fr));
     gap: 1em;

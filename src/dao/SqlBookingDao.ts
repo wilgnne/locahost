@@ -21,8 +21,8 @@ export class SqlBookingDao implements BookingDao {
 
   async create (data: Booking): Promise<void> {
     const { cpf, idMovie } = data
-    const query = `INSERT INTO client (
-      idClient,
+    const query = `INSERT INTO booking (
+      cpf,
       idMovie
     ) VALUES (
       ${cpf},
@@ -40,7 +40,7 @@ export class SqlBookingDao implements BookingDao {
   }
 
   async getBookingsByClientId (clientId: number): Promise<Booking[]> {
-    const sql = `SELECT * FROM booking WHERE idClient=${clientId};`
+    const sql = `SELECT * FROM booking WHERE cpf="${clientId}";`
 
     const response = await this.database.query<Booking[]>(sql)
     return response

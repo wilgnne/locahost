@@ -1,39 +1,46 @@
-const navHome = document.getElementById('navHome')
-const navCheckout = document.getElementById('navCheckout')
+const nav = document.querySelectorAll('.nav li')
+const contents = document.querySelectorAll('#contents > div')
 
-const home = document.getElementById('home')
-const checkout = document.getElementById('checkout')
+function desactiveAll () {
+  nav.forEach(li => {
+    li.classList.remove('active')
+  })
+  contents.forEach(div => {
+    div.classList.remove('active')
+  })
+}
 
 const myList = document.getElementById('myList')
 
-navHome.addEventListener('click', () => {
-  if (navHome.classList.contains('active')) return
-  navHome.classList.add('active')
-  navCheckout.classList.remove('active')
-  home.classList.add('active')
-  checkout.classList.remove('active')
-  myList.classList.add('active')
+const divMoviesCheckout = document.getElementById('moviesCheckout')
+
+nav.forEach((li, index) => {
+  li.addEventListener('click', () => {
+    if (index === 1) {
+      // eslint-disable-next-line no-undef
+      if (myMoviesList.length === 0) return
+      myList.classList.remove('active')
+      refreshCheckout()
+    } else {
+      myList.classList.add('active')
+    }
+    desactiveAll()
+    li.classList.add('active')
+    contents[index].classList.add('active')
+  })
 })
 
-const divMoviesChekout = document.getElementById('moviesChekout')
-
-navCheckout.addEventListener('click', () => {
+function refreshCheckout () {
   // eslint-disable-next-line no-undef
-  if (myMoviesList.length === 0) return
-  if (checkout.classList.contains('active')) return
-  navCheckout.classList.add('active')
-  navHome.classList.remove('active')
-  checkout.classList.add('active')
-  home.classList.remove('active')
-  myList.classList.remove('active')
-  divMoviesChekout.innerHTML = ''
+  refreshPrice()
+  assignInformation()
+  divMoviesCheckout.innerHTML = ''
   // eslint-disable-next-line no-undef
   myMoviesList.forEach(movie => {
     // eslint-disable-next-line no-undef
-    divMoviesChekout.appendChild(createMovie(movie))
+    divMoviesCheckout.appendChild(createMovie(movie))
   })
-  assignInformation()
-})
+}
 
 const informations = document.querySelectorAll('.mainCheckout .informations span')
 
@@ -46,16 +53,50 @@ function assignInformation () {
   informations[2].innerText = listPrice.innerText
 }
 
-const chekoutForm = document.getElementById('chekoutForm')
+const checkoutForm = document.getElementById('checkoutForm')
 
-chekoutForm.addEventListener('submit', (event) => {
+checkoutForm.addEventListener('submit', async (event) => {
   const inpCPF = document.getElementById('cpf')
   event.preventDefault()
+  if (!checkCPF(inpCPF.value)) return
+  const cpf = checkCPF(inpCPF.value)
+  // eslint-disable-next-line no-undef
+  const req = myMoviesList.map(movie => {
+    return {
+      cpf,
+      idMovie: movie.id
+    }
+  })
+  const status = await fetch('/api/booking', {
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    method: 'POST',
+    body: JSON.stringify(req)
+  })
+  if (status.status === 201) {
+    // eslint-disable-next-line no-undef
+    while (myMoviesList.length > 0) {
+    // eslint-disable-next-line no-undef
+      myMoviesList.pop()
+    }
+    refreshCheckout()
+    forHome()
+    // eslint-disable-next-line no-undef
+    moviesList.innerHTML = ''
+  }
 })
 
 function checkCPF (cpf) {
   cpf = cpf.replaceAll('.', '')
   cpf = cpf.replaceAll('-', '')
-  if (cpf === 11) return cpf
+  if (cpf.length === 11) return cpf
   return false
+}
+
+function forHome () {
+  desactiveAll()
+  nav[0].classList.add('active')
+  contents[0].classList.add('active')
+  myList.classList.add('active')
 }

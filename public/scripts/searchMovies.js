@@ -18,8 +18,9 @@ async function getMovies (search) {
   emitMoviesLoaded()
 }
 
-function createMovie (movie) {
+function createMovie (movie, status) {
   const movieCard = document.createElement('div')
+  movieCard.style.border = status === undefined ? '' : `5px solid ${status}`
   movieCard.id = `movie-${movie.id}`
   movieCard.classList.add('movie')
 
@@ -39,7 +40,7 @@ function createMovie (movie) {
 
   const title = document.createElement('p')
   title.classList.add('title')
-  title.innerText = movie.title
+  title.innerText = movie.title.slice(0, 35)
   description.appendChild(title)
 
   const date = document.createElement('p')
